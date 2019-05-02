@@ -1,0 +1,25 @@
+{
+  "name": "jsdoc-react-templates",
+  "version": "0.0.1",
+  "description": "React based templating for JSDocs",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "jsdoc",
+    "react"
+  ],
+  "author": "Ryan McNeely",
+  "license": "GPLv3",
+  "dependencies": {
+    "@babel/core": "^7.4.4",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "webpack": "^4.30.0",
+    "webpack-dev-server": "^3.3.1"
+  }
+}
