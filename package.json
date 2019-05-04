@@ -7,9 +7,10 @@
     "test": "test"
   },
   "scripts": {
+    "build":"webpack -p --config=webpack.config.js",
     "start": "npm run webpack",
     "test": "test",
-    "webpack": "webpack-dev-server --inline --config=webpack.config.js --watch=true"
+    "webpack": "webpack-dev-server --inline --watch=true"
   },
   "keywords": [
     "jsdoc",

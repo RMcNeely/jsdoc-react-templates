@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
+const env = process.env.PROD ? "production" : "development";
 module.exports = {
 	devServer: {
 		contentBase: path.join(__dirname),
@@ -9,14 +10,14 @@ module.exports = {
 			'Access-Control-Allow-Origin': '*'
 		},
 		host: '0.0.0.0',
-		publicPath: 'dist/',
+		publicPath: '/dist/',
 		port: 4000,
 	},
 
 	devtool: 'source-maps',
 
 	entry: {
-		main: path.join(__dirname, 'index')
+		bundle: path.join(__dirname, 'index')
 	},
 
 	module: {
@@ -40,7 +41,7 @@ module.exports = {
 
 			{
 				test: /\.(js|jsx)$/,
-
+				exclude: [/node_modules/],
 				use: [
 					{
 						loader: 'babel-loader',
@@ -53,14 +54,13 @@ module.exports = {
 		]
 	},
 
-	mode: 'development',
+	mode: env,
 
 	output: {
-		chunkFilename: '[name].js',
-		filename: '[name].js'
+		//chunkFilename: '[name].js',
+		filename: '[name].js',
+		path: path.join(__dirname, 'dist')
 	},
-
-	plugins: [],
 
 	optimization: {
 		// splitChunks: {
@@ -82,7 +82,7 @@ module.exports = {
 		extensions: ['.js', '.jsx'],
 		modules: [
 			'node_modules',
-			path.join(__dirname, 'src')
+			path.join(__dirname)
 		]
 	}
 

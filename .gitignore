@@ -1,1 +1,8 @@
+#Ignore some common defaults
 node_modules
+dist/
+
+#Ignore temp files from Vim
+*~
+**/*~
+**/**/*~
