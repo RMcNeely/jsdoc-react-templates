@@ -1,0 +1,9 @@
+{
+    "standard.enable": true,
+    "standard.run": "onSave",
+    "standard.validate": [
+        "javascript",
+        "javascriptreact"
+    ],
+    "standard.usePackageJson": true
+}

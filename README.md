@@ -1,5 +1,6 @@
 # jsdoc-react-templates
 
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 ## Overview
 
 Documenting your code is one of the most important things a developer can do, and JSDoc has become the defacto standard of JavaScript. Unfortunately the tools to create beautiful looking documentation haven't kept up with the rest of tooling in the JavaScript ecosystem. Currently creating a custom JSDoc template involves a lot work in with an outdated templating scheme. This project is an attempt to create an easily accessible standardized template that can be used in place of the standard JSDoc templates.

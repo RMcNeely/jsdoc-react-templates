@@ -1,89 +1,71 @@
-const webpack = require('webpack');
-const path = require('path');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const path = require('path')
 
-const env = process.env.PROD ? "production" : "development";
+const env = process.env.PROD ? 'production' : 'development'
 module.exports = {
-	devServer: {
-		contentBase: path.join(__dirname),
-		headers: {
-			'Access-Control-Allow-Origin': '*'
-		},
-		host: '0.0.0.0',
-		publicPath: '/dist/',
-		port: 4000,
-	},
+  devServer: {
+    contentBase: path.join(__dirname),
+    headers: {
+      'Access-Control-Allow-Origin': '*'
+    },
+    host: '0.0.0.0',
+    publicPath: '/dist/',
+    port: 4000
+  },
 
-	devtool: 'source-maps',
+  devtool: 'source-maps',
 
-	entry: {
-		bundle: path.join(__dirname, 'index')
-	},
+  entry: {
+    bundle: path.join(__dirname, 'index')
+  },
 
-	module: {
-		rules: [
-			{
-				test: /\.css$/,
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
 
-				use: [
-					{
-						loader: 'style-loader',
+        use: [
+          {
+            loader: 'style-loader',
 
-						options: {
-							sourceMap: true
-						}
-					},
-					{
-						loader: 'css-loader'
-					}
-				]
-			},
+            options: {
+              sourceMap: true
+            }
+          },
+          {
+            loader: 'css-loader'
+          }
+        ]
+      },
 
-			{
-				test: /\.(js|jsx)$/,
-				exclude: [/node_modules/],
-				use: [
-					{
-						loader: 'babel-loader',
-						options: {
-							presets: ['@babel/preset-react']
-						}
-					}
-				] 
-			}
-		]
-	},
+      {
+        test: /\.(js|jsx)$/,
+        exclude: [/node_modules/],
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-react']
+            }
+          }
+        ]
+      }
+    ]
+  },
 
-	mode: env,
+  mode: env,
 
-	output: {
-		//chunkFilename: '[name].js',
-		filename: '[name].js',
-		path: path.join(__dirname, 'dist')
-	},
+  output: {
+    // chunkFilename: '[name].js',
+    filename: '[name].js',
+    path: path.join(__dirname, 'dist')
+  },
 
-	optimization: {
-		// splitChunks: {
-		// 	cacheGroups: {
-		// 		vendors: {
-		// 			priority: -10,
-		// 			test: /[\\/]node_modules[\\/]/
-		// 		}
-		// 	},
+  resolve: {
+    extensions: ['.js', '.jsx'],
+    modules: [
+      'node_modules',
+      path.join(__dirname)
+    ]
+  }
 
-		// 	chunks: 'async',
-		// 	minChunks: 1,
-		// 	minSize: 30000,
-		// 	name: true
-		// }
-	},
-
-	resolve: {
-		extensions: ['.js', '.jsx'],
-		modules: [
-			'node_modules',
-			path.join(__dirname)
-		]
-	}
-
-};
+}
